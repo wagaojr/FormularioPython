@@ -1,9 +1,8 @@
 import sqlite3
 
-
 class BancodeDados:
     def __init__(self):
-        self.conexao = sqlite3.connect("bancoDados.db")
+        self.conexao = sqlite3.connect("bancoDados.csv")
         self.createTable()
 
     def createTable(self):

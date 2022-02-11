@@ -1,4 +1,6 @@
 import streamlit as st;
+from serviços.dados import Dados
+import serviços.database
 
 st.title("ProMove")
 
@@ -13,4 +15,4 @@ with st.form(key="include_cliente"):
 
 
 if input_button_submit:
-    pass
+    Dados.insertDado(input_name,input_age, input_occupation, input_local, input_pergunta1, input_pergunta2)
