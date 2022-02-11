@@ -2,18 +2,19 @@ from database import BancodeDados
 
 class Dados:
 
-    def __init__(self, id=0, nome="", idade=int, local="", pergunta1="", pergunta2=""):
+    def __init__(self, id=0, nome="", idade=int,vinculo="", local="", pergunta1="", pergunta2=""):
         self.id = id
         self.nome = nome
         self.idade = idade
+        self.vinculo = vinculo
         self.local = local
         self.pergunta1 = pergunta1
         self.pergunta2 = pergunta2
     
-    def insertDado(nome="", idade=int, local="", pergunta1="",  pergunta2=""):
+    def insertDado(nome="", idade=int,vinculo="", local="", pergunta1="",  pergunta2=""):
           banco = BancodeDados()
           c = banco.conexao.cursor()
-          comando = "insert into dados(nome, idade, local, pergunta1, pergunta2) values('"+ nome +"', '"+ str(idade) + "','"+ local +"','"+ pergunta1 +"','"+ pergunta2 +"')"
+          comando = "insert into dados(nome, idade, vinculo, local, pergunta1, pergunta2) values('"+ nome +"', '"+ str(idade) + "','"+vinculo+"','"+ local +"','"+ pergunta1 +"','"+ pergunta2 +"')"
           c.execute(comando)
           banco.conexao.commit()
           c.close()  
@@ -40,10 +41,10 @@ class Dados:
             self.limite = elemento[5]
         c.close()
     
-    def updateDados(nome, idade, local, pergunta1,  pergunta2, id):
+    def updateDados(nome, idade,vinculo, local, pergunta1,  pergunta2, id):
         banco = BancodeDados()
         c = banco.conexao.cursor()
-        comando = "update dados set nome = '" + nome +"', idade = '" + idade +"', local = '"+local+"', pergunta1 = '" +pergunta1+"', pergunta2 = '" +pergunta2+"'where id= "+id+""
+        comando = "update dados set nome = '" + nome +"', idade = '" + idade +"', vinculo = '"+vinculo+"',local = '"+local+"', pergunta1 = '" +pergunta1+"', pergunta2 = '" +pergunta2+"'where id= "+id+""
         c.execute(comando)
         banco.conexao.commit()
         c.close()

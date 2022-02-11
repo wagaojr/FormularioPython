@@ -14,6 +14,7 @@ class BancodeDados:
                 id integer primary key autoincrement,
                 nome text,
                 idade integer,
+                vinculo text,
                 local text,
                 pergunta1 text,
                 pergunta2 text
